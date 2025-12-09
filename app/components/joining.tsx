@@ -9,7 +9,7 @@ function Joining() {
         </svg>
       ),
       title: 'Fill Out The Registration Form',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.'
+      description: 'Begin your journey by completing our simple registration form. This helps us understand your interests, goals, and experience so we can guide you in the best possible way. Your first step toward growth starts here.'
     },
     {
       icon: (
@@ -18,7 +18,7 @@ function Joining() {
         </svg>
       ),
       title: 'Attend A Trial Session',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.'
+      description: 'Experience the atmosphere firsthand by joining a trial session. Meet the coaches, interact with fellow participants, and get a real feel for the training style. It’s the perfect opportunity to see if the program aligns with your passion.'
     },
     {
       icon: (
@@ -27,7 +27,7 @@ function Joining() {
         </svg>
       ),
       title: 'Become An Official Member',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.'
+      description: 'Once you’re confident and ready, complete the membership process to officially join the community. As a member, you gain access to dedicated training, support, and a network that motivates you to become your best.'
     }
   ]
 
@@ -41,16 +41,16 @@ function Joining() {
             {/* Main Large Image - Black & White */}
             <div className='relative rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl'>
               <img 
-                src="/cricket-bowler-bw.jpg" 
+                src="./img/pla2.png" 
                 alt="Cricket Player Bowling" 
-                className='w-full h-[500px] object-cover grayscale'
+                className='w-full h-[500px] object-cover '
               />
             </div>
 
             {/* Secondary Image - Color */}
             <div className='absolute bottom-8 right-8 rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl w-64 h-48 z-10 transform hover:scale-105 transition-transform duration-300'>
               <img 
-                src="/cricket-batting.jpg" 
+                src="./img/pla.png" 
                 alt="Cricket Batting" 
                 className='w-full h-full object-cover'
               />

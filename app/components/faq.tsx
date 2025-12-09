@@ -51,7 +51,7 @@ function Faq() {
               {/* Large Image - Left */}
               <div className='rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl h-80'>
                 <img 
-                  src="/cricket-player-smile.jpg" 
+                  src=" ./img/we2.png" 
                   alt="Cricket Player" 
                   className='w-full h-full object-cover'
                 />
@@ -62,9 +62,9 @@ function Faq() {
                 {/* Top Image */}
                 <div className='rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl h-48'>
                   <img 
-                    src="/cricket-action-field.jpg" 
+                    src="./img/we.png" 
                     alt="Cricket Action" 
-                    className='w-full h-full object-cover'
+                    className='w-full h-full object-cover object-top'
                   />
                 </div>
 

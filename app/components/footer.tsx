@@ -35,7 +35,7 @@ function Footer() {
               <span className='text-xl font-bold'>Kapil Yadav Cricket Centre</span>
             </div>
             <p className='text-gray-400 text-sm leading-relaxed'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+              Cricket coaching, training, and matches—combined to create a complete, structured pathway for every aspiring player.
             </p>
             
             {/* Social Media Icons */}
@@ -74,13 +74,14 @@ function Footer() {
           <div className='flex flex-col gap-4 items-end text-right'>
             <h3 className='text-xl font-bold mb-2'>Contact</h3>
             <a href="tel:+626761-8523-398" className='text-gray-300 hover:text-white transition-colors duration-300'>
-              +62761-8523-398
+             +91 88987 17137,+91 88280 49119
             </a>
             <a href="mailto:Hello@Domainsite.Com" className='text-gray-300 hover:text-white transition-colors duration-300'>
-              Hello@Domainsite.Com
+              kyccmumbai ( Kapil Yadav Cricket Centre)
+
             </a>
             <p className='text-gray-300 leading-relaxed'>
-              KLLG St, No.99, Pku City, ID 28289
+              Location - Manohar Joshi College, City Sport,   Sion West, Mumbai
             </p>
           </div>
 

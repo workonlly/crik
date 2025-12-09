@@ -12,7 +12,7 @@ function About() {
             {/* Main Cricket Image */}
             <div className='relative z-10 rounded-3xl overflow-hidden border-4 border-white shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500'>
               <img 
-                src="/cricket-player.jpg" 
+                src="./img/im2.jpg" 
                 alt="Cricket Player" 
                 className='w-full h-[500px] object-cover'
               />
@@ -21,7 +21,7 @@ function About() {
             {/* Secondary Image - Cricket Ball */}
             <div className='absolute -top-8 -left-8 z-0 rounded-3xl overflow-hidden border-4 border-white shadow-2xl w-48 h-48 transform -rotate-6 hover:rotate-0 transition-transform duration-500'>
               <img 
-                src="/cricket-ball.jpg" 
+                src="./img/im1.jpg" 
                 alt="Cricket Ball" 
                 className='w-full h-full object-cover'
               />
@@ -44,9 +44,7 @@ function About() {
 
             {/* Description */}
             <p className='text-gray-400 text-lg leading-relaxed'>
-              Sed dignissim massa tellus, ac pulvinar dolor porta quis. Aenean consequat, 
-              velit eget vulputate lobortis, sapien tortor maximus nulla, sit amet ultrices 
-              velit lectus sed turpis. Nunc a convallis lorem, ut pretium nisi.
+             Behind every boundary, there’s a brotherhood — a bond built on shared struggles, early-morning practices, and the unspoken trust that teammates carry onto the field. It’s a reminder that every run scored and every challenge faced is not just an individual effort, but a collective journey. Beyond the lines of the game, unity, respect, and friendship create a connection that lasts far longer than the final whistle.
             </p>
 
             {/* Features List */}
@@ -83,26 +81,6 @@ function About() {
                   <h3 className='text-lg font-semibold'>Creating Champions On And Off The Field</h3>
                 </div>
               </div>
-            </div>
-
-            {/* Founder Card */}
-            <div className='flex items-center gap-4 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 mt-8'>
-              <div className='relative'>
-                <div className='w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-1'>
-                  <img 
-                    src="/founder.jpg" 
-                    alt="Elsa Verina" 
-                    className='w-full h-full rounded-full object-cover border-2 border-gray-800'
-                  />
-                </div>
-              </div>
-              <div className='flex-1'>
-                <h4 className='text-lg font-bold'>Elsa Verina</h4>
-                <p className='text-gray-400 text-sm'>Founder & Head Coach</p>
-              </div>
-              <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105'>
-                Read More
-              </button>
             </div>
           </div>
 

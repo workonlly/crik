@@ -15,17 +15,17 @@ function Choose() {
     'Professional Coaching': {
       title: 'Coaching Built For Performance And Progress',
       description: 'Fusce efficitur justo non maximus iaculis. Aenean in diam quis diam feugiat pulvinar. Ut sit amet congue sapien. Nulla varius est vitae risus cursus malesuada at id nulla.',
-      image: '/cricket-action.jpg'
+      image: './crk/crik3.jpg'
     },
     'Inclusive Community': {
       title: 'A Welcoming Environment For All',
       description: 'Join a diverse community of cricket enthusiasts where everyone is valued. We foster an inclusive atmosphere that encourages growth, friendship, and mutual respect.',
-      image: '/cricket-community.jpg'
+      image: './crk/crik1.jpg'
     },
     'Modern Facilities': {
       title: 'State-Of-The-Art Training Grounds',
       description: 'Train with the best equipment and facilities. Our modern cricket grounds feature professional-grade pitches, nets, and amenities to enhance your game.',
-      image: '/cricket-facility.jpg'
+      image: './crk/crik2.jpg'
     }
   }
 
@@ -54,7 +54,7 @@ function Choose() {
                 <div className='flex-shrink-0'>
                   <div className='w-40 h-48 rounded-2xl overflow-hidden bg-gray-700'>
                     <img 
-                      src="/young-cricketer.jpg" 
+                      src="./img/im4.jpg" 
                       alt="Young Cricketer" 
                       className='w-full h-full object-cover'
                     />
@@ -62,8 +62,8 @@ function Choose() {
                 </div>
                 <div className='flex-1 flex flex-col justify-center'>
                   <p className='text-gray-300 leading-relaxed'>
-                    Aliquam condimentum pulvinar ante, sed pellentesque neque. Aenean ut volutpat eros. Nulla mauris nisl, gravida aliquet leo ut, porttitor laoreet nunc.
-                  </p>
+                   "Priyanshu Singh shined in the Giles Shield with a superb all-round show. He bowled 6 overs with 2 maidens, giving just 13 runs and taking a brilliant 5-wicket haul. He also contributed with a quick 27 off 14 balls, making it a standout performance."
+                   </p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ function Choose() {
                 <img 
                   src={content[activeTab as keyof typeof content].image}
                   alt={activeTab}
-                  className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                  className='w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent'></div>
               </div>

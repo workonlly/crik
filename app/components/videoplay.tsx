@@ -2,56 +2,78 @@
 import React, { useState } from 'react'
 
 function Videoplay() {
-  const [isPlaying, setIsPlaying] = useState(false)
-
   return (
-    <section className='relative w-full h-[500px] overflow-hidden'>
-      {/* Background Image/Video */}
-      <div className='absolute inset-0'>
-        <img 
-          src="/cricket-field-background.jpg" 
-          alt="Cricket Field" 
-          className='w-full h-full object-cover'
-        />
-        {/* Overlay */}
-        <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-gray-900/60 to-black/70'></div>
-      </div>
-
-      {/* Content */}
-      <div className='relative z-10 flex flex-col items-center justify-center h-full text-center px-8'>
-        <div className='max-w-4xl space-y-6'>
-          {/* Heading */}
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'>
-            Become Part Of Our<br />Cricket Family
-          </h2>
-
-          {/* Description */}
-          <p className='text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, 
-            luctus nec ullamcorper mattis, pulvinar dapibus leo.
-          </p>
-
-          {/* CTA Button */}
-          <div className='pt-4'>
-            <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-blue-600/50 hover:shadow-blue-700/50'>
-              Join Tambora Today !
-            </button>
+    <section className='bg-gradient-to-r from-black via-gray-900 to-black text-white py-20 px-8'>
+      <div className='max-w-7xl mx-auto'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+          
+          {/* Left Side - Video */}
+          <div className='relative rounded-3xl overflow-hidden border-4 border-gray-700 shadow-2xl group'>
+            <video 
+              className='w-full h-full object-cover'
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/vid1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
+
+          {/* Right Side - Content */}
+          <div className='space-y-6'>
+            {/* Badge */}
+            <div className='inline-block'>
+              <span className='px-4 py-2 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700'>
+                Join Us
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight'>
+              Become Part Of Our<br />Cricket Family
+            </h2>
+
+            {/* Description */}
+            <p className='text-lg text-gray-400 leading-relaxed'>
+              Join our passionate cricket community where players of all skill levels come together to train, compete, and grow. Experience world-class coaching, state-of-the-art facilities, and a supportive environment that brings out the champion in you.
+            </p>
+
+            {/* Features List */}
+            <div className='space-y-3 pt-4'>
+              <div className='flex items-center gap-3'>
+                <svg className='w-6 h-6 text-blue-400 flex-shrink-0' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fillRule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clipRule='evenodd' />
+                </svg>
+                <span className='text-gray-300'>Professional coaching and training programs</span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <svg className='w-6 h-6 text-blue-400 flex-shrink-0' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fillRule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clipRule='evenodd' />
+                </svg>
+                <span className='text-gray-300'>Modern facilities and equipment</span>
+              </div>
+              <div className='flex items-center gap-3'>
+                <svg className='w-6 h-6 text-blue-400 flex-shrink-0' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fillRule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clipRule='evenodd' />
+                </svg>
+                <span className='text-gray-300'>Supportive and inclusive community</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className='pt-6'>
+              <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-blue-600/50 hover:shadow-blue-700/50 inline-flex items-center gap-2'>
+                Join Us Today
+                <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7l5 5m0 0l-5 5m5-5H6' />
+                </svg>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Play Button Overlay (Optional) */}
-      {!isPlaying && (
-        <button 
-          onClick={() => setIsPlaying(true)}
-          className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-20 h-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border-4 border-white/50'
-          aria-label='Play Video'
-        >
-          <svg className='w-10 h-10 text-white ml-1' fill='currentColor' viewBox='0 0 24 24'>
-            <path d='M8 5v14l11-7z'/>
-          </svg>
-        </button>
-      )}
     </section>
   )
 }
