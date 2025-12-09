@@ -11,9 +11,7 @@ function Footer() {
             <h2 className='text-5xl md:text-6xl font-bold leading-tight max-w-3xl'>
               Cricket Coaching, Training, And Matches—Together
             </h2>
-            <button className='bg-gray-600 hover:bg-gray-500 text-white font-semibold px-10 py-5 rounded-full text-xl transition-all duration-300 hover:scale-105 whitespace-nowrap'>
-              Get Membership Now →
-            </button>
+            
           </div>
         </div>
       </div>

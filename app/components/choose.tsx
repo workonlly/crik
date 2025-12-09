@@ -50,7 +50,7 @@ function Choose() {
 
             {/* Image Card with Description */}
             <div className='bg-gray-800/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300'>
-              <div className='flex gap-6'>
+              <div className='flex flex-col md:flex-row gap-6'>
                 <div className='flex-shrink-0'>
                   <div className='w-40 h-48 rounded-2xl overflow-hidden bg-gray-700'>
                     <img 
