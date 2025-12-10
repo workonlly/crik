@@ -26,7 +26,7 @@ function Navbar() {
               />
             </div>
             <span className='text-sm sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-300 group-hover:to-cyan-300 transition-all duration-300 hidden sm:block'>
-              Kapil Yadav Cricket Centre
+              Kapil Yadav Cricket Centre Mumbai
             </span>
             <span className='text-sm font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent sm:hidden'>
               KYCC

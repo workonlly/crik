@@ -54,7 +54,7 @@ function Choose() {
                 <div className='flex-shrink-0'>
                   <div className='w-40 h-48 rounded-2xl overflow-hidden bg-gray-700'>
                     <img 
-                      src="./img/im4.jpg" 
+                      src="./img/eww.jpg" 
                       alt="Young Cricketer" 
                       className='w-full h-full object-cover'
                     />
@@ -62,7 +62,7 @@ function Choose() {
                 </div>
                 <div className='flex-1 flex flex-col justify-center'>
                   <p className='text-gray-300 leading-relaxed'>
-                   "Priyanshu Singh shined in the Giles Shield with a superb all-round show. He bowled 6 overs with 2 maidens, giving just 13 runs and taking a brilliant 5-wicket haul. He also contributed with a quick 27 off 14 balls, making it a standout performance."
+                   Shivam P Yadav delivered a brilliant all-round performance, showcasing both patience and skill. With the bat, he played a composed and determined knock of 84 not out off 113 balls, holding the innings together and guiding his team with maturity. His contribution didn’t stop there—he impressed with the ball as well, bowling 12 disciplined overs for just 45 runs, claiming 2 important wickets and delivering 2 maiden overs. It was a complete performance that highlighted his consistency, control, and match-winning potential.
                    </p>
                 </div>
               </div>
