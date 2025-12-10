@@ -54,7 +54,7 @@ function Choose() {
                 <div className='flex-shrink-0'>
                   <div className='w-40 h-48 rounded-2xl overflow-hidden bg-gray-700'>
                     <img 
-                      src="./img/eww.jpg" 
+                      src="./img/eww.png" 
                       alt="Young Cricketer" 
                       className='w-full h-full object-cover'
                     />
