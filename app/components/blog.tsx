@@ -52,7 +52,7 @@ function Blog() {
   }
 
   return (
-    <section className='bg-gradient-to-r from-black via-gray-900 to-black text-white py-20 px-8'>
+    <section id='matches' className='bg-gradient-to-r from-black via-gray-900 to-black text-white py-20 px-8'>
       <div className='max-w-7xl mx-auto'>
         {/* Header */}
         <div className='text-center mb-12'>

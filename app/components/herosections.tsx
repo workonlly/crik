@@ -87,7 +87,7 @@ function Herosections() {
   }
 
   return (
-    <div className='relative bg-black h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
+    <div id='hero' className='relative bg-black h-screen bg-gradient-to-r from-black via-gray-900 to-black'>
       {/* Slider Container */}
       <div className='relative h-full w-full overflow-hidden'>
         {/* Images */}

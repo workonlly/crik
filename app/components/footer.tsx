@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function Footer() {
   return (
-    <footer className='bg-black text-white'>
+    <footer id='contact' className='bg-black text-white'>
       {/* Top Section with CTA */}
       <div className='border-b border-gray-800'>
         <div className='max-w-7xl mx-auto px-8 py-16'>
@@ -39,7 +39,9 @@ function Footer() {
             {/* Social Media Icons */}
             <div className='flex flex-row gap-4'>
               <a 
-                href="#" 
+                href="https://www.facebook.com/people/Kapil-Yadav-Cricket-Centre/61585188540961/?rdid=7zm6gThBYc9jN3aE&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AdtVrMUFK%2F" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className='w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110'
                 aria-label="Facebook"
               >
@@ -48,12 +50,14 @@ function Footer() {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://wa.me/message/FCOXVMHZQC6EP1" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className='w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-all duration-300 hover:scale-110'
-                aria-label="Twitter"
+                aria-label="WhatsApp"
               >
-                <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24'>
-                  <path d='M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'/>
+                <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 32 32'>
+                  <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.624 1.934 6.6L4 29l7.6-1.934A12.96 12.96 0 0016 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-1.98 0-3.917-.52-5.6-1.5l-.4-.233-4.533 1.154 1.154-4.533-.233-.4A10.93 10.93 0 015.083 15c0-6.045 4.872-10.917 10.917-10.917S26.917 8.955 26.917 15 22.045 25.917 16 25.917zm5.267-7.267c-.287-.144-1.7-.84-1.963-.933-.263-.093-.454-.144-.646.144-.193.287-.74.933-.907 1.127-.167.193-.334.217-.62.073-.287-.144-1.213-.447-2.312-1.425-.855-.762-1.432-1.7-1.6-1.987-.167-.287-.018-.443.126-.587.13-.13.287-.334.43-.5.144-.167.192-.287.287-.48.096-.192.048-.36-.024-.504-.072-.144-.646-1.56-.885-2.137-.233-.56-.47-.484-.646-.493-.167-.009-.36-.011-.553-.011-.192 0-.504.072-.768.36-.263.287-1.01.987-1.01 2.404 0 1.417 1.036 2.788 1.181 2.983.144.192 2.04 3.12 4.938 4.253.691.298 1.229.475 1.648.608.692.221 1.322.19 1.82.115.555-.082 1.7-.693 1.94-1.362.24-.669.24-1.243.168-1.362-.072-.12-.263-.192-.55-.336z"/>
                 </svg>
               </a>
               <a 
@@ -69,18 +73,40 @@ function Footer() {
           </div>
 
           {/* Contact Section */}
-          <div className='flex flex-col gap-4 items-end text-right'>
-            <h3 className='text-xl font-bold mb-2'>Contact</h3>
-            <a href="tel:+626761-8523-398" className='text-gray-300 hover:text-white transition-colors duration-300'>
-             +91 88987 17137,+91 88280 49119
-            </a>
-            <a href="mailto:Hello@Domainsite.Com" className='text-gray-300 hover:text-white transition-colors duration-300'>
+          <div className='flex flex-col gap-6 items-end text-right bg-gradient-to-l from-gray-900 via-black to-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800'>
+            <h3 className='text-2xl font-extrabold mb-2 text-blue-400 tracking-wide flex items-center gap-2'>
+              <svg className='w-7 h-7 text-blue-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 10.34V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h7.34M17 17l4 4m0 0l-4-4m4 4V15a2 2 0 00-2-2h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2z' />
+              </svg>
+              Contact Us
+            </h3>
+            <div className='space-y-2'>
+              <a href="tel:+918898717137" className='flex items-center gap-2 text-lg text-gray-200 hover:text-blue-400 font-semibold transition-colors duration-300'>
+                <svg className='w-5 h-5 text-blue-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a2 2 0 011.7 1.06l1.52 2.72a2 2 0 01-.45 2.45l-1.27 1.27a16.001 16.001 0 006.58 6.58l1.27-1.27a2 2 0 012.45-.45l2.72 1.52A2 2 0 0121 17.72V21a2 2 0 01-2 2h-1C7.82 23 1 16.18 1 8V7a2 2 0 012-2z' />
+                </svg>
+                +91 88987 17137
+              </a>
+              <a href="tel:+918828049119" className='flex items-center gap-2 text-lg text-gray-200 hover:text-blue-400 font-semibold transition-colors duration-300'>
+                <svg className='w-5 h-5 text-blue-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a2 2 0 011.7 1.06l1.52 2.72a2 2 0 01-.45 2.45l-1.27 1.27a16.001 16.001 0 006.58 6.58l1.27-1.27a2 2 0 012.45-.45l2.72 1.52A2 2 0 0121 17.72V21a2 2 0 01-2 2h-1C7.82 23 1 16.18 1 8V7a2 2 0 012-2z' />
+                </svg>
+                +91 88280 49119
+              </a>
+            </div>
+            <a href="mailto:Hello@Domainsite.Com" className='flex items-center gap-2 text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300'>
+              <svg className='w-5 h-5 text-blue-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm2 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1' />
+              </svg>
               kyccmumbai ( Kapil Yadav Cricket Centre)
-
             </a>
-            <p className='text-gray-300 leading-relaxed'>
-              Location - Manohar Joshi College, City Sport,   Sion West, Mumbai
-            </p>
+            <div className='flex items-center gap-2 text-gray-300 mt-2'>
+              <svg className='w-5 h-5 text-blue-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243M15 11V7a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z' />
+              </svg>
+              <span className='font-medium'>Location:</span>
+              <span className='text-gray-400'>Manohar Joshi College, City Sport, Sion&nbsp;West,&nbsp;Mumbai</span>
+            </div>
           </div>
 
         </div>

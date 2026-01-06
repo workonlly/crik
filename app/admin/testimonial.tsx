@@ -1,201 +1,109 @@
+
 'use client'
 import React, { useState, useEffect } from 'react'
 import supabase from '../../supabase'
 
-interface Testimonial {
-  id: number
-  created_at: string
-  name: string
-  response: string
-}
-
-function Testimonial() {
-  const [formData, setFormData] = useState({
-    name: '',
-    response: ''
-  })
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState({ type: '', text: '' })
+function GalleryImageUpload() {
+  const [file, setFile] = useState<File | null>(null)
+  const [uploading, setUploading] = useState(false)
+  const [message, setMessage] = useState<string>('')
+  const [images, setImages] = useState<{ name: string, url: string }[]>([])
 
   useEffect(() => {
-    fetchTestimonials()
+    fetchImages()
   }, [])
 
-  const fetchTestimonials = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .order('created_at', { ascending: false })
-
-      if (error) throw error
-      setTestimonials(data || [])
-    } catch (error: any) {
-      console.error('Error fetching testimonials:', error)
-      showMessage('error', 'Failed to fetch testimonials')
+  const fetchImages = async () => {
+    const { data, error } = await supabase.storage.from('gallery').list()
+    if (!error && data) {
+      const imageList = data.map((file) => ({
+        name: file.name,
+        url: supabase.storage.from('gallery').getPublicUrl(file.name).data.publicUrl
+      }))
+      setImages(imageList)
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0])
+    }
+  }
+
+  const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    setMessage({ type: '', text: '' })
-
-    try {
-      const { error } = await supabase
-        .from('testimonials')
-        .insert([
-          {
-            name: formData.name,
-            response: formData.response
-          }
-        ])
-
-      if (error) throw error
-
-      showMessage('success', 'Testimonial added successfully!')
-      clearForm()
-      fetchTestimonials()
-    } catch (error: any) {
-      console.error('Error adding testimonial:', error)
-      showMessage('error', error.message || 'Failed to add testimonial')
-    } finally {
-      setLoading(false)
+    if (!file) return
+    setUploading(true)
+    setMessage('')
+    const { error } = await supabase.storage.from('gallery').upload(file.name, file)
+    if (error) {
+      setMessage('Upload failed: ' + error.message)
+    } else {
+      setMessage('Image uploaded successfully!')
+      fetchImages()
     }
-  }
-
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this testimonial?')) return
-
-    setLoading(true)
-    try {
-      const { error } = await supabase
-        .from('testimonials')
-        .delete()
-        .eq('id', id)
-
-      if (error) throw error
-
-      showMessage('success', 'Testimonial deleted successfully!')
-      fetchTestimonials()
-    } catch (error: any) {
-      console.error('Error deleting testimonial:', error)
-      showMessage('error', 'Failed to delete testimonial')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const clearForm = () => {
-    setFormData({
-      name: '',
-      response: ''
-    })
-  }
-
-  const showMessage = (type: string, text: string) => {
-    setMessage({ type, text })
-    setTimeout(() => setMessage({ type: '', text: '' }), 5000)
+    setUploading(false)
+    setFile(null)
   }
 
   return (
     <div className='bg-white rounded-2xl shadow-xl border-2 border-black m-6 p-8'>
-      {/* Header */}
       <div className='border-b-4 border-black pb-6 mb-8'>
-        <h1 className='text-5xl font-black text-black text-center uppercase tracking-tight'>Testimonials</h1>
-        <p className='text-center text-gray-600 mt-2'>Manage customer testimonials and reviews</p>
+        <h1 className='text-5xl font-black text-black text-center uppercase tracking-tight'>Gallery Image Upload</h1>
+        <p className='text-center text-gray-600 mt-2'>Upload images to the public gallery</p>
       </div>
-
-      {/* Message */}
-      {message.text && (
-        <div className={`mb-6 p-4 rounded-lg border-2 ${
-          message.type === 'success' 
-            ? 'bg-green-50 border-green-500 text-green-800' 
-            : 'bg-red-50 border-red-500 text-red-800'
-        }`}>
-          {message.text}
+      {message && (
+        <div className='mb-6 p-4 rounded-lg border-2 bg-green-50 border-green-500 text-green-800'>
+          {message}
         </div>
       )}
-
-      {/* Form */}
-      <form onSubmit={handleSubmit}>
-        <div className='space-y-6 max-w-3xl mx-auto mb-8'>
-          {/* Name */}
-          <div className='bg-gray-50 p-6 rounded-xl border-2 border-black'>
-            <label className='block text-lg font-bold text-black mb-3 uppercase'>Customer Name</label>
-            <input 
-              type="text" 
-              placeholder="Enter customer name..."
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              required
-              className='w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-400 text-black font-medium'
-            />
-          </div>
-
-          {/* Response/Review */}
-          <div className='bg-gray-50 p-6 rounded-xl border-2 border-black'>
-            <label className='block text-lg font-bold text-black mb-3 uppercase'>Testimonial Message</label>
-            <textarea 
-              placeholder="Enter customer testimonial..."
-              value={formData.response}
-              onChange={(e) => setFormData({...formData, response: e.target.value})}
-              required
-              rows={6}
-              className='w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-400 text-black font-medium resize-none'
-            />
-          </div>
-
-          {/* Action Buttons */}
-          <div className='flex gap-4 pt-4'>
-            <button 
-              type="submit"
-              disabled={loading}
-              className='flex-1 bg-black text-white font-bold py-4 px-8 rounded-xl border-2 border-black hover:bg-gray-800 transition-all duration-300 uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed'
-            >
-              {loading ? 'Saving...' : 'Save Testimonial'}
-            </button>
-            <button 
-              type="button"
-              onClick={clearForm}
-              disabled={loading}
-              className='flex-1 bg-white text-black font-bold py-4 px-8 rounded-xl border-2 border-black hover:bg-gray-100 transition-all duration-300 uppercase tracking-wide disabled:opacity-50'
-            >
-              Clear
-            </button>
-          </div>
-        </div>
+      <form onSubmit={handleUpload} className='flex flex-col items-center gap-6 mb-10'>
+        <input
+          type='file'
+          accept='image/*'
+          onChange={handleFileChange}
+          className='block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-black file:text-white hover:file:bg-gray-700'
+        />
+        <button
+          type='submit'
+          disabled={uploading || !file}
+          className='bg-black text-white font-bold py-3 px-8 rounded-xl border-2 border-black hover:bg-gray-800 transition-all duration-300 uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed'
+        >
+          {uploading ? 'Uploading...' : 'Upload Image'}
+        </button>
       </form>
-
-      {/* Testimonials List */}
       <div className='border-t-4 border-black pt-8 mt-8'>
-        <h2 className='text-3xl font-black text-black mb-6 uppercase'>Customer Testimonials</h2>
-        
-        {testimonials.length === 0 ? (
+        <h2 className='text-3xl font-black text-black mb-6 uppercase'>Uploaded Images</h2>
+        {images.length === 0 ? (
           <div className='text-center py-12 bg-gray-50 rounded-xl border-2 border-black'>
-            <p className='text-gray-500 text-lg'>No testimonials yet</p>
+            <p className='text-gray-500 text-lg'>No images uploaded yet</p>
           </div>
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className='bg-gray-50 rounded-xl border-2 border-black p-6 hover:shadow-xl transition-all duration-300'>
-                <div className='space-y-3'>
-                  <h3 className='text-xl font-bold text-black'>{testimonial.name}</h3>
-                  <p className='text-gray-600 line-clamp-4'>{testimonial.response}</p>
-                  <p className='text-xs text-gray-400'>
-                    {new Date(testimonial.created_at).toLocaleDateString()}
-                  </p>
-                  
-                  {/* Delete Button */}
-                  <button
-                    onClick={() => handleDelete(testimonial.id)}
-                    disabled={loading}
-                    className='w-full mt-4 bg-red-600 text-white font-bold py-2 px-4 rounded-lg border-2 border-red-700 hover:bg-red-700 transition-all duration-300 disabled:opacity-50'
-                  >
-                    Delete
-                  </button>
-                </div>
+            {images.map((image) => (
+              <div key={image.name} className='bg-gray-50 rounded-xl border-2 border-black p-6 flex flex-col items-center'>
+                <img src={image.url} alt={image.name} className='w-full h-64 object-cover rounded-lg mb-2' />
+                <span className='text-xs text-gray-500 break-all mb-2'>{image.name}</span>
+                <button
+                  onClick={async () => {
+                    const confirmDelete = window.confirm('Are you sure you want to delete this image?');
+                    if (!confirmDelete) return;
+                    setUploading(true);
+                    setMessage('');
+                    const { error } = await supabase.storage.from('gallery').remove([image.name]);
+                    if (error) {
+                      setMessage('Delete failed: ' + error.message);
+                    } else {
+                      setMessage('Image deleted successfully!');
+                      fetchImages();
+                    }
+                    setUploading(false);
+                  }}
+                  className='mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded-lg border-2 border-red-700 hover:bg-red-700 transition-all duration-300 disabled:opacity-50'
+                  disabled={uploading}
+                >
+                  Delete
+                </button>
               </div>
             ))}
           </div>
@@ -205,4 +113,4 @@ function Testimonial() {
   )
 }
 
-export default Testimonial
+export default GalleryImageUpload
